@@ -1,0 +1,85 @@
+
+---
+title: "Code Book for Getting & Cleaning Data Project"
+author: "TZ"
+date: "October 24, 2015"
+output: html_document
+---
+
+## Input Data
+"activity_labels.txt" 
+Number 1~6 is assigned to each of the six activities (Laying, Sitting, Standing, Walking, Walking Upstairs, and Walking downstairs)
+
+"features.txt" 
+Description of the 561 measurements
+
+"subject_train.txt" and "subject_test.txt" 
+For each observation, 1~30 code is assigned which is corresponding to one particular participant
+
+"x_train.txt" and "x_test.txt" 
+For each observation, there are 561 measurements
+
+"y_train.txt" and "y_test.txt" 
+For each observation, 1~6 code is assigned which is corresponding to one particular activity
+
+## Data set from the beginning to the end of transformation 
+x_tr[7352 X 563]    Training data set adding subject and activity info
+x_te[2947 X 563]    Test data set adding subject and activity info
+alldata[10299 X 563]    Traing and test data set merged (since there is no overlap, size of the merged data is simply the sum of the two)
+cleandata[10299 X 81]   Extrating only measurements of mean and standard deviation
+clean_mean[180 X 81]    Average of each variable for each activity and each subject
+
+## Variables in the tidy dataset
+ [1] "tBodyAcc-mean()-X"               "tBodyAcc-mean()-Y"              
+ [3] "tBodyAcc-mean()-Z"               "tGravityAcc-mean()-X"           
+ [5] "tGravityAcc-mean()-Y"            "tGravityAcc-mean()-Z"           
+ [7] "tBodyAccJerk-mean()-X"           "tBodyAccJerk-mean()-Y"          
+ [9] "tBodyAccJerk-mean()-Z"           "tBodyGyro-mean()-X"             
+[11] "tBodyGyro-mean()-Y"              "tBodyGyro-mean()-Z"             
+[13] "tBodyGyroJerk-mean()-X"          "tBodyGyroJerk-mean()-Y"         
+[15] "tBodyGyroJerk-mean()-Z"          "tBodyAccMag-mean()"             
+[17] "tGravityAccMag-mean()"           "tBodyAccJerkMag-mean()"         
+[19] "tBodyGyroMag-mean()"             "tBodyGyroJerkMag-mean()"        
+[21] "fBodyAcc-mean()-X"               "fBodyAcc-mean()-Y"              
+[23] "fBodyAcc-mean()-Z"               "fBodyAcc-meanFreq()-X"          
+[25] "fBodyAcc-meanFreq()-Y"           "fBodyAcc-meanFreq()-Z"          
+[27] "fBodyAccJerk-mean()-X"           "fBodyAccJerk-mean()-Y"          
+[29] "fBodyAccJerk-mean()-Z"           "fBodyAccJerk-meanFreq()-X"      
+[31] "fBodyAccJerk-meanFreq()-Y"       "fBodyAccJerk-meanFreq()-Z"      
+[33] "fBodyGyro-mean()-X"              "fBodyGyro-mean()-Y"             
+[35] "fBodyGyro-mean()-Z"              "fBodyGyro-meanFreq()-X"         
+[37] "fBodyGyro-meanFreq()-Y"          "fBodyGyro-meanFreq()-Z"         
+[39] "fBodyAccMag-mean()"              "fBodyAccMag-meanFreq()"         
+[41] "fBodyBodyAccJerkMag-mean()"      "fBodyBodyAccJerkMag-meanFreq()" 
+[43] "fBodyBodyGyroMag-mean()"         "fBodyBodyGyroMag-meanFreq()"    
+[45] "fBodyBodyGyroJerkMag-mean()"     "fBodyBodyGyroJerkMag-meanFreq()"
+[47] "tBodyAcc-std()-X"                "tBodyAcc-std()-Y"               
+[49] "tBodyAcc-std()-Z"                "tGravityAcc-std()-X"            
+[51] "tGravityAcc-std()-Y"             "tGravityAcc-std()-Z"            
+[53] "tBodyAccJerk-std()-X"            "tBodyAccJerk-std()-Y"           
+[55] "tBodyAccJerk-std()-Z"            "tBodyGyro-std()-X"              
+[57] "tBodyGyro-std()-Y"               "tBodyGyro-std()-Z"              
+[59] "tBodyGyroJerk-std()-X"           "tBodyGyroJerk-std()-Y"          
+[61] "tBodyGyroJerk-std()-Z"           "tBodyAccMag-std()"              
+[63] "tGravityAccMag-std()"            "tBodyAccJerkMag-std()"          
+[65] "tBodyGyroMag-std()"              "tBodyGyroJerkMag-std()"         
+[67] "fBodyAcc-std()-X"                "fBodyAcc-std()-Y"               
+[69] "fBodyAcc-std()-Z"                "fBodyAccJerk-std()-X"           
+[71] "fBodyAccJerk-std()-Y"            "fBodyAccJerk-std()-Z"           
+[73] "fBodyGyro-std()-X"               "fBodyGyro-std()-Y"              
+[75] "fBodyGyro-std()-Z"               "fBodyAccMag-std()"              
+[77] "fBodyBodyAccJerkMag-std()"       "fBodyBodyGyroMag-std()"         
+[79] "fBodyBodyGyroJerkMag-std()"      "subject"
+[80] "activity"
+
+t (at the beginning): time domain
+f (at the beginning): frequency domain
+Acc: acceleration from accelerometer
+Body: body acceleration mode
+Gravity: gravitational mode
+Gyro: angular velocity from gyroscope
+Jerk: jerk signal
+Mag: magnitude
+mean(): measurement of mean value
+std(): measurement of standard deviation
+
